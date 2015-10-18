@@ -1,29 +1,50 @@
 require('./styles.css');
 
+import UserActions from '../../actions/UserActions';
+import UserStore from '../../stores/UserStore';
 import React from 'react';
 import {apiGet} from 'requestLib' ;
 import {Resolver} from 'react-resolver';
+import Button from 'Button';
 
 class Home extends React.Component {
 
   constructor(){
     super();
-    this.state = {users: [] };
+    this.state = {
+      user: UserStore.getState().user,
+      users: []
+    };
+
+    this.handleLogout = this.handleLogout.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   componentDidMount(){
+    UserStore.listen((state) => { 
+      this.setState({ user: state.user });
+    });
+
     apiGet("v1/users", {}, (data) => {
       this.setState({users: data})
     });
 
   }
 
+  handleLogout(){
+    UserActions.deleteUser();
+  }
+
+  handleLogin(){
+    this.context.router.transitionTo('login');
+  }
 
   render(): ?ReactElement {
     return (
       <div className="Home">
         HOME
-        {this.state.users.map((user) =>{return user.full_name })}
+        {this.state.user ? this.state.user.full_name : ""}
+        {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button> }
       </div>
     );
   }
@@ -31,6 +52,10 @@ class Home extends React.Component {
 
 Home.propTypes = {
   // id: React.PropTypes.any.isRequired,
+};
+
+Home.contextTypes = {
+  router: React.PropTypes.func.isRequired
 };
 
 Home.displayName = 'Home';
