@@ -2,9 +2,14 @@
 @import 'normalize.css';
 
 body {
-
   background-color: grey;
   color: red;
   font-family: Georgia;
-  
+}
+
+.nav_bar {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
 }

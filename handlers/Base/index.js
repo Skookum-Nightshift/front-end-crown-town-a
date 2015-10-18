@@ -10,14 +10,12 @@ class AppBase extends React.Component {
 
   render(): ?ReactElement {
     return (
-      <div>
         <div className="AppBase">
+          <div className="nav_bar">
+            nav stuff
+          </div>
           <RouteHandler />
         </div>
-        <div className="nav_bar">
-          nav stuff
-        </div>
-      </div>
     );
   }
 }
