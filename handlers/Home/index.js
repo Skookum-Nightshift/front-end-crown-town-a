@@ -41,10 +41,15 @@ class Home extends React.Component {
 
   render(): ?ReactElement {
     return (
-      <div className="Home">
-        HOME
-        {this.state.user ? this.state.user.full_name : ""}
-        {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button> }
+      <div>
+        <div className="title">
+          HOME
+        </div>
+        <div className="user_name_logout">
+          {this.state.user ? this.state.user.full_name : ""}
+          <br/>
+          {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button> }
+        </div>
       </div>
     );
   }
