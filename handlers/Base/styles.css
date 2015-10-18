@@ -1,2 +1,10 @@
 /** @define AppBase; use strict */
 @import 'normalize.css';
+
+body {
+
+  background-color: grey;
+  color: red;
+  font-family: Georgia;
+  
+}
