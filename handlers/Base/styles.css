@@ -2,9 +2,12 @@
 @import 'normalize.css';
 
 body {
-  background-color: grey;
-  color: red;
-  font-family: Georgia;
+  background-image: url("/public/images/bg.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .nav_bar {
