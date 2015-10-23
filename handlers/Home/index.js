@@ -52,10 +52,14 @@ class Home extends React.Component {
             <span className="caption">Admin</span>
           </div>
 
-          <div className="item">
-            <i className="fa fa-user"></i>
-            <span className="caption">User</span>
-          </div>
+            <div className="current_link">
+              <div className="item">
+                <i className="fa fa-user"></i>
+                <span className="red">
+                  <span className="caption" styles="color:red;">User</span>
+                </span>
+              </div>
+            </div>
 
           <div className="item">
             <i className="fa fa-map"></i>

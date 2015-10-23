@@ -2,10 +2,20 @@
 
 .SideBox {
   background-color: #D1D3D5;
-  float: right;
+  display: inline-block;
   width: 33%;
-  min-width: 33%;
+  min-width: 10%;
+
   white-space: nowrap;
+  p
+}
+
+div.SideBox{
+  position: absolute;
+  right: 0;
+  padding: 9px;
+  line-height: 1.6;
+  margin-right: -25px;
 }
 
 
@@ -13,7 +23,7 @@ div.item {
     vertical-align: top;
     display: inline-block;
     text-align: center;
-    width: 120px;
+    width: 83px;
 }
 .fa_fa-cog {
     width: 100px;

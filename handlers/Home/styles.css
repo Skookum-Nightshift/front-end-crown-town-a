@@ -2,3 +2,17 @@
     float:right;
     white-space: nowrap;
   }
+
+i.fa.fa-user{
+  color: red;
+}
+
+.red {
+  color: red;
+}
+
+.current_link{
+  border-color: red;
+  border-style: groove;
+  display: inline-block;
+}
