@@ -1,3 +1,5 @@
+require('./styles.css');
+
 import React from 'react';
 import {Resolver} from 'react-resolver';
 import Input from 'Input';
@@ -13,7 +15,7 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
-      err: "" 
+      err: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +37,7 @@ class Login extends React.Component {
         else {
           this.setState({err: "motherfucker"});
         }
-        /*else {          
+        /*else {
           this.context.router.transitionTo('error');
         }*/
       }
@@ -52,10 +54,15 @@ class Login extends React.Component {
   render(): ?ReactElement {
     return (
       <div className="Login">
-        Login {this.state.err.length > 0 ? this.state.err : ""}
-        <Input value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
-        <Input value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
-        <Button onClick={this.handleSubmit} >Submit</Button>
+        {this.state.err.length > 0 ? this.state.err : ""}
+        <br/>
+        <Input placeholder="  Username" value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
+        <br/><br/>
+        <Input placeholder="  Password" value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
+        <br/><br/><br/>
+        <Button onClick={this.handleSubmit} >LOG IN</Button>
+        <br/><br/><br/><br/><br/><br/><br/>
+        <div className="role">EMPLOYEE</div>
       </div>
     );
   }

@@ -21,7 +21,7 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    UserStore.listen((state) => { 
+    UserStore.listen((state) => {
       this.setState({ user: state.user });
     });
 
@@ -42,13 +42,12 @@ class Home extends React.Component {
   render(): ?ReactElement {
     return (
       <div>
-        <div className="title">
-          HOME
-        </div>
+        <div className="title">Welcome back !</div>
+        <br/>
         <div className="user_name_logout">
           {this.state.user ? this.state.user.full_name : ""}
           <br/>
-          {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button> }
+          {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>LOG IN</Button> }
         </div>
       </div>
     );
