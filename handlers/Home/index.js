@@ -21,6 +21,7 @@ class Home extends React.Component {
 
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.userRoutes = this.userRoutes.bind(this);
   }
 
   componentDidMount(){
@@ -36,6 +37,22 @@ class Home extends React.Component {
 
   handleLogout(){
     UserActions.deleteUser();
+  }
+
+  userRoutes() {
+    var {routes} = this.state.user;
+    var routesListItems = routes.map((route) => {
+    return(
+
+        <li>{route.address}</li>
+      );
+    });
+
+    return (
+      <ol>
+        {routesListItems}
+      </ol>
+    );
   }
 
 
@@ -76,15 +93,18 @@ class Home extends React.Component {
         <div className= "RouteBox"> 
           <div className="dynamic_data">
             <h3 className="current_user">Hello {this.state.user ? this.state.user.full_name : ""}</h3>
-            <h4 className="current_routes"> You currently have { this.state.user.routes.length }  route(s) today </h4>
-          <div className="user_name_logout">
-            {this.state.user ? this.state.user.full_name : ""}
-            <br/>
-            <br/>
-            {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>LOG IN</Button> }
+            <h4 className="current_routes"> You currently have { this.state.user.routes.length }  route{ this.state.user.routes.length>1 ? 's' : ''} today </h4>
+            <div>
+              {this.userRoutes()}
+            </div>
+            <div className="user_name_logout">
+              {this.state.user ? this.state.user.full_name : ""}
+              <br/>
+              <br/>
+              {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>LOG IN</Button> }
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );lkj
   }
