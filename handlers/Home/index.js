@@ -6,6 +6,8 @@ import React from 'react';
 import {apiGet} from 'requestLib' ;
 import {Resolver} from 'react-resolver';
 import Button from 'Button';
+import SideBox from 'SideBox';
+import TopBar from 'TopBar';
 
 class Home extends React.Component {
 
@@ -35,6 +37,7 @@ class Home extends React.Component {
     UserActions.deleteUser();
   }
 
+
   handleLogin(){
     this.context.router.transitionTo('login');
   }
@@ -44,6 +47,31 @@ class Home extends React.Component {
       <div>
         <div className="title">Welcome back !</div>
         <br/>
+        <div className="TopBar"></div>
+        <div className="SideBox">
+          <div className="item">
+            <i className="fa fa-cog"></i>
+            <span className="caption">Admin</span>
+          </div>
+
+          <div className="item">
+            <i className="fa fa-user"></i>
+            <span className="caption">User</span>
+          </div>
+
+          <div className="item">
+            <i className="fa fa-map"></i>
+            <span className="caption">Routes</span>
+          </div>
+          
+          <div className="item">
+            <i className="fa fa-power-off"></i>
+            <span className="caption">Log Out</span>
+          </div>
+        </div>
+        <div className="title">
+          HOME
+        </div>
         <div className="user_name_logout">
           {this.state.user ? this.state.user.full_name : ""}
           <br/>

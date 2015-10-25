@@ -3,7 +3,6 @@
 
 body {
   background-image: url('http://s13.postimg.org/x8qubzzxi/CTC_App_Screen_BG.jpg');
-
   text-align: center;
   font-family: 'Raleway', sans-serif;
   color: #FFFFFF;
@@ -23,3 +22,12 @@ div.image{
   top: 0;
   width: 100%;
 }
+/*=======
+  background-image: url("/public/images/bg.png");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+>>>>>>> master*/

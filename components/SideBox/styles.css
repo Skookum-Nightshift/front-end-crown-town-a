@@ -1,0 +1,24 @@
+/** @define SideBox; use strict */
+
+.SideBox {
+  background-color: #D1D3D5;
+  float: right;
+  width: 33%;
+  min-width: 33%;
+  white-space: nowrap;
+}
+
+
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+}
+.fa_fa-cog {
+    width: 100px;
+    height: 100px;
+}
+.caption {
+    display: block;
+}
