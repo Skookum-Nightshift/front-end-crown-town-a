@@ -1,4 +1,23 @@
-.user_name_logout{
-    float:right;
-    white-space: nowrap;
-  }
+.title {
+
+  font-size: 56px;
+  font-weight: lighter;
+}
+
+.Button {
+  /* Rectangle 224 Copy 2: */
+  background: #D6483D;
+  border: none;
+  border-radius: 9px;
+
+  white-space: normal;
+
+  /* LOG IN: */
+  font-family: .AppleSystemUIFont;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  line-height: 35px;
+  width:25%;
+}

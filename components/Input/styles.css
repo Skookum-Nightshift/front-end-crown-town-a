@@ -18,19 +18,19 @@
 }
 
 .Input--required::-webkit-input-placeholder {
-   color: #FF3366;
+   color: #FFFFFF;
 }
 
 .Input--required:-moz-placeholder {
-   color: #FF3366;
+   color: #FFFFFF;
 }
 
 .Input--required::-moz-placeholder{
-   color: #FF3366;
+   color: #FFFFFF;
 }
 
 .Input--required:-ms-input-placeholder {
-   color: #FF3366;
+   color: #FFFFFF;
 }
 
 .Input-child {}
