@@ -11,8 +11,22 @@ i.fa.fa-user{
   color: red;
 }
 
+.RouteBox{
+  color:white;
+}
+
 .current_link{
   border-color: red;
   border-style: groove;
   display: inline-block;
+}
+
+h3.current_user{
+  white-space: nowrap;
+  padding-left: 30%;
+}
+
+h4.current_routes{
+  white-space: nowrap;
+  padding-left: 10%;
 }

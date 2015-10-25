@@ -1,0 +1,18 @@
+/** @define RouteBox; use strict */
+
+.RouteBox {
+  background-color: #343C4A;
+  margin-top: 75px;
+  display: inline-block;
+  width:80px;
+  position: absolute;
+  right: 0;
+  width: 31.6%;
+  min-width: 10%;
+  padding-top: 77px;
+}
+
+.RouteBox-child {}
+
+.RouteBox-child.is-state {}
+

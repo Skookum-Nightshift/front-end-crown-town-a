@@ -8,6 +8,7 @@ import {Resolver} from 'react-resolver';
 import Button from 'Button';
 import SideBox from 'SideBox';
 import TopBar from 'TopBar';
+import RouteBox from 'RouteBox';
 
 class Home extends React.Component {
 
@@ -71,16 +72,21 @@ class Home extends React.Component {
             <span className="caption">Log Out</span>
           </div>
         </div>
-        <div className="title">
-          HOME
+
+
+        <div className= "RouteBox"> 
+          <h3 className="current_user">Hello {this.state.user ? this.state.user.full_name : ""}</h3>
+          <h4 className="current_routes"> You currently have { this.state.user.routes.length }  route(s) today </h4>
         </div>
+
+
         <div className="user_name_logout">
           {this.state.user ? this.state.user.full_name : ""}
           <br/>
           {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button> }
         </div>
       </div>
-    );
+    );lkj
   }
 }
 
