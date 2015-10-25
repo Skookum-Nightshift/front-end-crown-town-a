@@ -12,6 +12,14 @@
   padding-top: 77px;
 }
 
+div.RouteBox{
+  background-image: url("/public/images/ct_white_logo.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  padding-bottom: 12%;
+
+}
+
 .RouteBox-child {}
 
 .RouteBox-child.is-state {}

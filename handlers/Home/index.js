@@ -97,16 +97,19 @@ class Home extends React.Component {
             <div>
               {this.userRoutes()}
             </div>
+
             <div className="user_name_logout">
-              {this.state.user ? this.state.user.full_name : ""}
-              <br/>
-              <br/>
-              {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>LOG IN</Button> }
+              <div className="bottom_logo">
+                {this.state.user ? this.state.user.full_name : ""}
+                <br/>
+                <br/>
+                {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>LOG IN</Button> }
+              </div>
             </div>
           </div>
         </div>
       </div>
-    );lkj
+    );
   }
 }
 
