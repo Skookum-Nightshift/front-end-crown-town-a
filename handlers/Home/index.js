@@ -45,8 +45,6 @@ class Home extends React.Component {
   render(): ?ReactElement {
     return (
       <div>
-        <div className="title">Welcome back !</div>
-        <br/>
         <div className="TopBar"></div>
         <div className="SideBox">
           <div className="item">
@@ -68,9 +66,6 @@ class Home extends React.Component {
             <i className="fa fa-power-off"></i>
             <span className="caption">Log Out</span>
           </div>
-        </div>
-        <div className="title">
-          HOME
         </div>
         <div className="user_name_logout">
           {this.state.user ? this.state.user.full_name : ""}
