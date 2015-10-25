@@ -1,46 +1,3 @@
-.user_name_logout{
-    float:right;
-    white-space: nowrap;
-  }
-
-i.fa.fa-user{
-  color: red;
-}
-
-.red {
-  color: red;
-}
-
-div.item{
-  color: #343c4a;
-}
-
-.RouteBox{
-  color:white;
-}
-
-.current_link{
-  border-color: red;
-  border-style: groove;
-  display: inline-block;
-}
-
-h3.current_user{
-  white-space: nowrap;
-  padding-left: 30%;
-}
-
-h4.current_routes{
-  white-space: nowrap;
-  padding-left: 10%;
-}
-
-.title {
-
-  font-size: 56px;
-  font-weight: lighter;
-}
-
 .Button {
   /* Rectangle 224 Copy 2: */
   background: #D6483D;
@@ -62,3 +19,56 @@ h4.current_routes{
 .dynamic_data{
   margin-right: 25%;
 }
+
+.current_link{
+  border-color: red;
+  border-style: groove;
+  display: inline-block;
+}
+
+h3.current_user{
+  white-space: nowrap;
+  padding-left: 30%;
+}
+
+h4.current_routes{
+  white-space: nowrap;
+  padding-left: 10%;
+}
+
+.user_name_logout{
+    float:right;
+    white-space: nowrap;
+    padding-top: 15%;
+  }
+
+i.fa.fa-user{
+  color: red;
+}
+
+.red {
+  color: red;
+}
+
+div.item{
+  color: #343c4a;
+}
+
+.RouteBox{
+  color:white;
+}
+
+.title {
+
+  font-size: 56px;
+  font-weight: lighter;
+}
+
+.bottom_logo {
+  background-image: url("/public/images/ct_white_logo.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
+

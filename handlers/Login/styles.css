@@ -57,6 +57,7 @@ div.role{
 .my_logo {
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 15%;
 
   background-image: url("/public/images/ct_white_logo.png");
   background-repeat: no-repeat;
