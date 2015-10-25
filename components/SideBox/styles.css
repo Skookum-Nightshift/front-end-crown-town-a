@@ -11,9 +11,8 @@
 div.SideBox{
   position: absolute;
   right: 0;
-  padding: 9px;
+  padding: 9px 0px;
   line-height: 1.6;
-  margin-right: -25px;
 }
 
 

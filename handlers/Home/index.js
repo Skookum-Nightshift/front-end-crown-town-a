@@ -24,7 +24,7 @@ class Home extends React.Component {
   }
 
   componentDidMount(){
-    UserStore.listen((state) => { 
+    UserStore.listen((state) => {
       this.setState({ user: state.user });
     });
 
@@ -57,7 +57,7 @@ class Home extends React.Component {
               <div className="item">
                 <i className="fa fa-user"></i>
                 <span className="red">
-                  <span className="caption" styles="color:red;">User</span>
+                  <span className="caption" styles="color:red !important;">User</span>
                 </span>
               </div>
             </div>
@@ -69,22 +69,22 @@ class Home extends React.Component {
           
           <div className="item">
             <i className="fa fa-power-off"></i>
-            <span className="caption">Log Out</span>
+            <span className="caption">Log Out </span>
           </div>
         </div>
 
-
         <div className= "RouteBox"> 
-          <h3 className="current_user">Hello {this.state.user ? this.state.user.full_name : ""}</h3>
-          <h4 className="current_routes"> You currently have { this.state.user.routes.length }  route(s) today </h4>
+          <div className="dynamic_data">
+            <h3 className="current_user">Hello {this.state.user ? this.state.user.full_name : ""}</h3>
+            <h4 className="current_routes"> You currently have { this.state.user.routes.length }  route(s) today </h4>
+          <div className="user_name_logout">
+            {this.state.user ? this.state.user.full_name : ""}
+            <br/>
+            <br/>
+            {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>LOG IN</Button> }
+          </div>
         </div>
-
-
-        <div className="user_name_logout">
-          {this.state.user ? this.state.user.full_name : ""}
-          <br/>
-          {this.state.user? <Button onClick={this.handleLogout}>Logout</Button> : <Button onClick={this.handleLogin}>Login</Button> }
-        </div>
+      </div>
       </div>
     );lkj
   }
