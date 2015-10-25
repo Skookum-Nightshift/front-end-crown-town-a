@@ -53,16 +53,18 @@ class Login extends React.Component {
 
   render(): ?ReactElement {
     return (
-      <div className="Login">
-        {this.state.err.length > 0 ? this.state.err : ""}
-        <br/>
-        <Input placeholder="  Username" value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
-        <br/><br/>
-        <Input placeholder="  Password" value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
-        <br/><br/><br/>
-        <Button onClick={this.handleSubmit} >LOG IN</Button>
-        <br/><br/><br/><br/><br/><br/><br/>
-        <div className="role">EMPLOYEE</div>
+      <div className="my_logo">
+        <div className="Login">
+          {this.state.err.length > 0 ? this.state.err : ""}
+          <br/>
+          <Input placeholder="  Username" value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
+          <br/><br/>
+          <Input placeholder="  Password" value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
+          <br/><br/><br/>
+          <Button onClick={this.handleSubmit} >LOG IN</Button>
+          <br/><br/><br/><br/><br/><br/><br/>
+          <div className="role">EMPLOYEE</div>
+        </div>
       </div>
     );
   }

@@ -1,3 +1,40 @@
+.user_name_logout{
+    float:right;
+    white-space: nowrap;
+  }
+
+i.fa.fa-user{
+  color: red;
+}
+
+.red {
+  color: red;
+}
+
+div.item{
+  color: #343c4a;
+}
+
+.RouteBox{
+  color:white;
+}
+
+.current_link{
+  border-color: red;
+  border-style: groove;
+  display: inline-block;
+}
+
+h3.current_user{
+  white-space: nowrap;
+  padding-left: 30%;
+}
+
+h4.current_routes{
+  white-space: nowrap;
+  padding-left: 10%;
+}
+
 .title {
 
   font-size: 56px;
@@ -20,4 +57,8 @@
   letter-spacing: 3px;
   line-height: 35px;
   width:25%;
+}
+
+.dynamic_data{
+  margin-right: 25%;
 }
