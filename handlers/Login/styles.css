@@ -8,9 +8,12 @@
   color: #FFFFFF;
 
   line-height: 35px;
-  width: 250px;
-  
-  margin-bottom: 25px;
+  max-width: 250px;
+  width: 95vw;
+
+  margin: 0 auto;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .Button {
@@ -27,8 +30,11 @@
   color: #FFFFFF;
   letter-spacing: 3px;
   line-height: 35px;
-  width:260px;
-  margin-top: 10px;
+  max-width: 278px;
+  width: 95vw;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .role {
@@ -50,7 +56,7 @@
   color: #FFFFFF;
   letter-spacing: 3px;
   line-height: 30px;
-  width:100px;
+  width: 100px;
 }
 
 .Login {
@@ -58,6 +64,7 @@
 }
 
 .my_logo {
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 15%;

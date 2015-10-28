@@ -1,26 +1,15 @@
 /** @define RouteBox; use strict */
 
 .RouteBox {
+  color: white;
   background-color: #343C4A;
-  margin-top: 75px;
   display: inline-block;
-  width:80px;
   position: absolute;
   right: 0;
-  width: 31.6%;
+  width: calc(31.6% - 30px);
   min-width: 10%;
-  padding-top: 77px;
+  padding: 70px 15px 15px 15px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 25px;
 }
-
-div.RouteBox{
-  background-image: url("/public/images/ct_white_logo.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  padding-bottom: 12%;
-
-}
-
-.RouteBox-child {}
-
-.RouteBox-child.is-state {}
-

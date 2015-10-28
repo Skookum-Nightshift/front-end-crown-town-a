@@ -6,26 +6,9 @@
   width: 33%;
   min-width: 10%;
   white-space: nowrap;
-}
-
-div.SideBox{
   position: absolute;
   right: 0;
   padding: 9px 0px;
   line-height: 1.6;
-}
-
-
-div.item {
-    vertical-align: top;
-    display: inline-block;
-    text-align: center;
-    width: 83px;
-}
-.fa_fa-cog {
-    width: 100px;
-    height: 100px;
-}
-.caption {
-    display: block;
+  border-bottom-left-radius: 25px;
 }
