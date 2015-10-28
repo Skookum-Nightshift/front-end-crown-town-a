@@ -29,17 +29,13 @@ class Login extends React.Component {
       "v1/sign_in",
       this.state,
       (data) => {
-        console.log(data);
+        // console.log(data);
         if (data.role === "employee"){
           UserActions.updateUser(data);
           this.context.router.transitionTo('home');
+        } else {
+          this.setState({ err: "motherfucker" });
         }
-        else {
-          this.setState({err: "motherfucker"});
-        }
-        /*else {
-          this.context.router.transitionTo('error');
-        }*/
       }
     );
   }
@@ -56,13 +52,9 @@ class Login extends React.Component {
       <div className="my_logo">
         <div className="Login">
           {this.state.err.length > 0 ? this.state.err : ""}
-          <br/>
-          <Input placeholder="  Username" value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
-          <br/><br/>
-          <Input placeholder="  Password" value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
-          <br/><br/><br/>
+          <Input placeholder="Username" value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
+          <Input placeholder="Password" value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
           <Button onClick={this.handleSubmit} >LOG IN</Button>
-          <br/><br/><br/><br/><br/><br/><br/>
           <div className="role">EMPLOYEE</div>
         </div>
       </div>
