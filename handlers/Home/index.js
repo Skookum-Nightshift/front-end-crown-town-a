@@ -9,6 +9,7 @@ import Button from 'Button';
 import SideBox from 'SideBox';
 import TopBar from 'TopBar';
 import RouteBox from 'RouteBox';
+import Link from 'react-router';
 
 class Home extends React.Component {
 
@@ -32,7 +33,6 @@ class Home extends React.Component {
     apiGet("v1/users", {}, (data) => {
       this.setState({users: data})
     });
-
   }
 
   handleLogout(){
@@ -44,7 +44,7 @@ class Home extends React.Component {
     var routesListItems = routes.map((route) => {
     return(
 
-        <li>{route.address}</li>
+        <li><Link to={'/employeeroute/' + route.route_id}>{route.address}</Link></li>
       );
     });
 
@@ -55,10 +55,10 @@ class Home extends React.Component {
     );
   }
 
-
   handleLogin(){
     this.context.router.transitionTo('login');
   }
+
 
   render(): ?ReactElement {
     return (

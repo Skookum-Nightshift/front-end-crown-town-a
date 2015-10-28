@@ -12,12 +12,14 @@ import NotFound from './handlers/NotFound';
 import App from './handlers/Base';
 import Home from'./handlers/Home';
 import Login from'./handlers/Login';
+import EmployeeRoute from './handlers/EmployeeRoute'
 
 var routes = (
   <Route path="/" handler={App} >
-    <DefaultRoute name="home" handler={Home} />
+    <DefaultRoute name="login" handler={Login} />
     <NotFoundRoute handler={NotFound} />
-    <Route name="login" path="/login" handler={Login} />
+    <Route name="home" path="/home" handler={Home} />
+    <Route name="employeeroute" path="/employeeroute/:id" handler={EmployeeRoute} />
   </Route>
 );
 
