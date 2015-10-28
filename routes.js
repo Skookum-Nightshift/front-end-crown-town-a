@@ -12,7 +12,7 @@ import NotFound from './handlers/NotFound';
 import App from './handlers/Base';
 import Home from'./handlers/Home';
 import Login from'./handlers/Login';
-import EmployeeRoute from './handlers/EmployeeRoute'
+import EmployeeRoute from './handlers/EmployeeRoute';
 
 var routes = (
   <Route path="/" handler={App} >
