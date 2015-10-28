@@ -42,9 +42,12 @@ class Home extends React.Component {
   userRoutes() {
     var {routes} = this.state.user;
     var routesListItems = routes.map((route) => {
-    return(
-
-        <li><Link to={'/employeeroute/' + route.route_id}>{route.address}</Link></li>
+      return (
+        <li>
+          <Link to={'/employeeroute/' + route.route_id}>
+            {route.address}
+          </Link>
+        </li>
       );
     });
 
@@ -58,7 +61,6 @@ class Home extends React.Component {
   handleLogin(){
     this.context.router.transitionTo('login');
   }
-
 
   render(): ?ReactElement {
     return (
