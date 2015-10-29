@@ -7,9 +7,10 @@ var {PropTypes} = React;
 
 class RouteBox extends React.Component {
   render(): ?ReactElement {
+    var {children} = this.props
     return (
       <div className="RouteBox">
-        RouteBoxxxxxxxxx
+        {children}
       </div>
     );
   }

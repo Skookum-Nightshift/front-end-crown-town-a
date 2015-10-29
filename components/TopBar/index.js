@@ -8,11 +8,9 @@ var {PropTypes} = React;
 class TopBar extends React.Component {
   render(): ?ReactElement {
     return (
-      <div>
-        <div className="TopBar">
-          <div className="ct_logo">
-            <img src="public/images/ct_white_logo.png"/> 
-          </div>
+      <div className="TopBar">
+        <div className="ct_logo">
+          <img src="public/images/ct_white_logo.png" />
         </div>
       </div>
     );

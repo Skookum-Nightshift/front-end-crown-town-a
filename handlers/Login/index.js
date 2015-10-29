@@ -13,9 +13,9 @@ class Login extends React.Component {
     super();
 
     this.state = {
-      email: "",
-      password: "",
-      err: ""
+      email: '',
+      password: '',
+      err: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,20 +26,16 @@ class Login extends React.Component {
     console.log(this.state.email, this.state.password, this.state.err);
 
     apiPost(
-      "v1/sign_in",
+      'v1/sign_in',
       this.state,
       (data) => {
-        console.log(data);
-        if (data.role === "employee"){
+        // console.log(data);
+        if (data.role === 'employee'){
           UserActions.updateUser(data);
           this.context.router.transitionTo('home');
+        } else {
+          this.setState({ err: 'motherfucker' });
         }
-        else {
-          this.setState({err: "motherfucker"});
-        }
-        /*else {
-          this.context.router.transitionTo('error');
-        }*/
       }
     );
   }
@@ -50,19 +46,18 @@ class Login extends React.Component {
     this.setState(state);
   }
 
-
   render(): ?ReactElement {
     return (
       <div className="my_logo">
         <div className="Login">
-          {this.state.err.length > 0 ? this.state.err : ""}
-          <br/>
-          <Input placeholder="  Username" value={this.state.email} onInputChange={this.updateState} type='email' name='email' />
-          <br/><br/>
-          <Input placeholder="  Password" value={this.state.password} onInputChange={this.updateState} name='password' type='password' />
-          <br/><br/><br/>
+          {this.state.err.length > 0 ? this.state.err : ''}
+          <Input placeholder="Email"
+            value={this.state.email} name="email"
+            onInputChange={this.updateState} type="email" />
+          <Input placeholder="Password"
+            value={this.state.password} name="password"
+            onInputChange={this.updateState} type="password" />
           <Button onClick={this.handleSubmit} >LOG IN</Button>
-          <br/><br/><br/><br/><br/><br/><br/>
           <div className="role">EMPLOYEE</div>
         </div>
       </div>
@@ -73,13 +68,7 @@ class Login extends React.Component {
 Login.contextTypes = {
   router: React.PropTypes.func.isRequired
 };
-Login.propTypes = {
-};
 
 Login.displayName = 'Login';
 
-export default Resolver.createContainer(Login, {
-  resolve: {
-
-  },
-});
+export default Login;

@@ -16,59 +16,47 @@
   width:25%;
 }
 
-.dynamic_data{
-  margin-right: 25%;
+.current_user,
+.current_routes {
+  text-align: center;
 }
 
-.current_link{
+.current_link,
+.link_item:hover {
   border-color: red;
   border-style: groove;
-  display: inline-block;
 }
 
-h3.current_user{
-  white-space: nowrap;
-  padding-left: 30%;
-}
-
-h4.current_routes{
-  white-space: nowrap;
-  padding-left: 10%;
-}
-
-.user_name_logout{
-    float:right;
-    white-space: nowrap;
-    padding-top: 15%;
-  }
-
-i.fa.fa-user{
+.current_link .caption,
+.current_link .fa,
+.link_item:hover .caption,
+.link_item:hover .fa {
   color: red;
 }
 
-.red {
-  color: red;
-}
-
-div.item{
+.link_item {
   color: #343c4a;
-}
-
-.RouteBox{
-  color:white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 83px;
+  border-width: 0;
+  border-bottom-width: 2px;
+  cursor: pointer;
 }
 
 .title {
-
   font-size: 56px;
   font-weight: lighter;
 }
 
 .bottom_logo {
   background-image: url("/public/images/ct_white_logo.png");
-  background-position: bottom center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 40px;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 45px;
 }
-
-
