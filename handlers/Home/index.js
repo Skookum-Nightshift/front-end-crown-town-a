@@ -10,6 +10,7 @@ import SideBox from 'SideBox';
 import TopBar from 'TopBar';
 import RouteBox from 'RouteBox';
 import {Link} from 'react-router';
+import GoogleMap from 'GoogleMap';
 
 class Home extends React.Component {
 
@@ -109,6 +110,8 @@ class Home extends React.Component {
         </div>
 
         { this.state.user ? routeBox : '' }
+
+        <GoogleMap />
       </div>
     );
   }

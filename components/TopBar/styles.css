@@ -8,4 +8,5 @@
   background-repeat: no-repeat;
   background-size: 62px;
   background-position-y: 9px;
+  z-index: 1;
 }
