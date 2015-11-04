@@ -1,0 +1,46 @@
+.route_tab {
+	background-color: #D6483D;
+	height: 50px;
+	text-align: center;
+	margin: 0px 220px 0px 30px;
+
+}
+
+.route_bar {
+	background-color: #D6483D;
+	height:5px;
+	margin: 0px 30px 0px 30px;
+
+}
+
+.route_list {
+	background-color: white;
+	height: 550px;
+	margin: 0px 30px 0px 30px;
+}
+
+.circle {
+	width: 45px; 
+	height: 45px; 
+	background: #343C4A; 
+	border-radius: 50px;
+	margin-left: 20px;
+	margin-left: 30px;
+	float: left;
+	  
+}
+
+.route_container {
+	background-color: #D1D3D5;
+	height: 90px;
+	margin-bottom: 2px;
+}
+.text {
+	display: inline-block;
+	color: #343C4A;
+}
+
+.number {
+	color: white;
+}
+
