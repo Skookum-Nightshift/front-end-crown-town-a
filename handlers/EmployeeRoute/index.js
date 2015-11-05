@@ -19,7 +19,7 @@ class EmployeeRoute extends React.Component {
     this.state = {
     };
 
-  
+
 
   }
 
@@ -31,38 +31,38 @@ class EmployeeRoute extends React.Component {
 
           <div className="current_link link_item">
             <i className="fa fa-cog"></i>
-            <div className="caption">Admin</div>
+            <div className="caption">ADMIN</div>
           </div>
 
           <div className="link_item">
             <i className="fa fa-user"></i>
-            <div className="caption">User</div>
+            <div className="caption">USER</div>
           </div>
 
           <div className="link_item">
             <i className="fa fa-map"></i>
-            <div className="caption">Routes</div>
+            <div className="caption">ROUTES</div>
           </div>
 
           <div className="link_item" onClick={this.handleLogin}>
             <i className="fa fa-power-off"></i>
-            <div className="caption">Log Out </div>
+            <div className="caption">LOG OUT</div>
           </div>
 
         </div>
-        
+
       <div className="RouteBox">
-        
+
         <div className="route_tab">
         <br/>
         Route 1
         </div>
-        
+
         <div className="route_bar">
         </div>
 
         <div className="route_list">
-          
+
           <div className="route_container">
             <div className="bullets">
               <br/>
@@ -73,7 +73,7 @@ class EmployeeRoute extends React.Component {
             </div>
             <div className="text"> <b>1243 Tremond Avenue</b><br/></div>
           </div>
-          
+
           <div className="route_container">
             <div className="bullets">
               <br/>

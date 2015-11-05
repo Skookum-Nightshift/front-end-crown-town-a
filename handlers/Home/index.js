@@ -70,10 +70,10 @@ class Home extends React.Component {
      routeBox = (
        <div className="RouteBox">
          <div className="current_user">
-           Hello {user.full_name}
+           Hello, {user.full_name}
          </div>
          <div className="current_routes">
-           You have {user.routes.length} route{user.routes.length>1 ? 's' : ''} today
+           You have <b> {user.routes.length} </b> route{user.routes.length>1 ? 's' : ''} today.
          </div>
          {this.userRoutes()}
          <div className="bottom_logo" />
@@ -83,27 +83,27 @@ class Home extends React.Component {
 
    return (
      <div>
-       <div className="TopBar"></div>
+       <TopBar></TopBar>
        <div className="SideBox">
 
          <div className="link_item">
            <i className="fa fa-cog"></i>
-           <div className="caption">Admin</div>
+           <div className="caption">ADMIN</div>
          </div>
 
          <div className="current_link link_item">
            <i className="fa fa-user"></i>
-           <div className="caption">User</div>
+           <div className="caption">USER</div>
          </div>
 
          <div className="link_item">
            <i className="fa fa-map"></i>
-           <div className="caption">Routes</div>
+           <div className="caption">ROUTES</div>
          </div>
 
          <div className="link_item" onClick={this.handleLogin}>
            <i className="fa fa-power-off"></i>
-           <div className="caption">Log Out </div>
+           <div className="caption">LOG OUT</div>
          </div>
 
        </div>

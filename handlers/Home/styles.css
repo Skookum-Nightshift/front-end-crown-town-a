@@ -15,10 +15,29 @@
   line-height: 35px;
   width:25%;
 }
-
-.current_user,
-.current_routes {
+.current_user, .current_routes {
   text-align: center;
+  border: 3px solid #FFFFFF;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+.current_user {
+  border-bottom: none;
+  padding-top: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.current_routes {
+  border-top: none;
+  padding-bottom: 20px;
+  font-size: 17px;
+  font-weight: lighter;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 .current_link,
@@ -50,13 +69,34 @@
   font-weight: lighter;
 }
 
-.bottom_logo {
-  background-image: url("/public/images/ct_white_logo.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 40px;
-  width: 40px;
-  height: 40px;
-  margin: 0 auto;
-  margin-top: 45px;
+div.bottom_logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+  width: 102px;
+  height: 101px;
+
+  content: url("/public/images/ct_white_logo.png");
+}
+.caption {
+  font-size: 13px;
+  padding: 2px;
+}
+
+/* Grid for routes list */
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #D3D3D3;
+    border: 1px solid white;
+    border-radius: 5px;
 }
