@@ -1,139 +1,116 @@
 require('./styles.css');
 
 import React from 'react';
-import {Resolver} from 'react-resolver';
-
-import UserActions from '../../actions/UserActions';
-import UserStore from '../../stores/UserStore';
-import {apiGet} from 'requestLib' ;
+import {apiGet} from 'requestLib';
 import Button from 'Button';
 import SideBox from 'SideBox';
 import TopBar from 'TopBar';
 import RouteBox from 'RouteBox';
 import {Link} from 'react-router';
 import GoogleMap from 'GoogleMap';
+import LoggedInHandler from 'LoggedInHandler';
+import NeighborhoodStore from '../../stores/NeighborhoodStore';
 
-class EmployeeRoute extends React.Component {
+class EmployeeRoute extends LoggedInHandler {
 
   constructor(){
     super();
-    this.state = {
-    };
+
+    this.state.neighborhood = NeighborhoodStore.getState().neighborhood;
+    this.state.latitude = null;
+    this.state.longitude = null;
+    this.state.route = null; // RouteStore.getState().route;
+
+    this.getNextRoute = this.getNextRoute.bind(this);
+    this.updateLocation = this.updateLocation.bind(this);
+  }
+
+  componentDidMount() {
+    this.watchUser();
+    this.handleNoUser();
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var {latitude, longitude} = position.coords;
+        this.setState({latitude, longitude}, () => {
+          // if (!this.state.route) {
+            this.getNextRoute();
+          // }
+        });
+      }.bind(this));
+    } else {
+      alert("NO GEO!!!");
+    }
+  }
+
+  getNextRoute() {
+    var {user, neighborhood, latitude, longitude} = this.state;
+    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.id}&lat=${latitude}&long=${longitude}`, {}, 
+      (result) => {
+        console.log(result);
+        // RouteActions.updateRoute(result);
+        this.setState({ route: result }, ()=> {
+          setTimeout(this.updateLocation, 10000);
+        });
+      },
+      (error) => {
+        console.log(error);
+      },
+      {
+        'Authorization': `Bearer ${user.auth_token}`
+      }
+    );
+  }
+
+  updateLocation(){
+     if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var{latitude, longitude} = this.state;
+        if (latitude !== position.coords.latitude || longitude !== position.coords.longitude){
+          this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude});
+        }
+        setTimeout( this.updateLocation, 10000);
+      }.bind(this));
+    } else {
+      alert("NO GEO!!!");
+    }
   }
 
   render(): ?ReactElement {
+    var {neighborhood, route, latitude, longitude} = this.state;
+    
+    if (route) {
+      var destinationLat = route.latitude;
+      var destinationLng = route.longitude;
+    }
+
     return (
       <div>
         <div className="TopBar"></div>
-        <div className="SideBox">
-
-          <div className="current_link link_item">
-            <i className="fa fa-cog"></i>
-            <div className="caption">Admin</div>
-          </div>
-
-          <div className="link_item">
-            <i className="fa fa-user"></i>
-            <div className="caption">User</div>
-          </div>
-
-          <div className="link_item">
-            <i className="fa fa-map"></i>
-            <div className="caption">Routes</div>
-          </div>
-
-          <div className="link_item" onClick={this.handleLogin}>
-            <i className="fa fa-power-off"></i>
-            <div className="caption">Log Out </div>
-          </div>
-
-        </div>
+        <SideBox />
         
         <div className="RouteBox">
-        
-          <div className="route_tab">
-            <br/>
-            Route 1
-          </div>
-          
-          <div className="route_bar">
-          </div>
 
           <div className="route_list">
-    
-            <div className="route_container">
-              <div className="bullets">
-                <br/>
-                <div className="circle">
-                <br/>
-                <div className="number">1</div>
-                </div>
-              </div>
-              <div className="text"> <b>1243 Tremond Avenue</b><br/>
-              </div>
-            </div>
-            
-            <div className="route_container">
-              <div className="bullets">
-                <br/>
-                <div className="circle">
-                <br/>
-                <div className="number">2</div>
-                </div>
-              </div>
-              <div className="text"> <b>5934 Remount Road</b><br/>
-              </div>
-            </div>
 
-            <div className="route_container">
-              <div className="bullets">
-                <br/>
-                <div className="circle">
-                <br/>
-                <div className="number">3</div>
-                </div>
+            { route ? (
+              <div>
+                <div>first name: {route.first_name}</div>
+                <div>last name: {route.last_name}</div>
+                <div>phone: {route.phone_number}</div>
+                <div>bucket location: {route.bucket_location}</div>
               </div>
-              <div className="text"> <b>1300 West Blvd</b><br/> 
-              </div>
-            </div>
+              ) : '' }
 
-            <div className="route_container">
-              <div className="bullets">
-                <br/>
-                <div className="circle">
-                <br/>
-                <div className="number">4</div>
-                </div>
-              </div>
-              <div className="text"> <b>2344 Wilmore Drive</b><br/> 
-              </div>
-            </div>
-
-            <div className="route_container">
-              <div className="bullets">
-                <br/>
-                <div className="circle">
-                <br/>
-                <div className="number">5</div>
-                </div>
-              </div>
-              <div className="text"> <b>54645 Bland Street</b><br/>
-              </div>
-            </div>
-
-            <div className="route_container">
-              <div className="bullets">
-                <br/>
-                <div className="circle">
-                <br/>
-                <div className="number">6</div>
-                </div>
-              </div>
-              <div className="text"> <b>2343 Winnifred Street</b><br/> </div>
-            </div>
           </div>
+          <Button onClick={this.getNextRoute}>Next Customer</Button>
         </div>
-      <GoogleMap />
+        { route ? (
+          <GoogleMap key={latitude+":"+longitude} lat={latitude} lng={longitude}
+                      directions={true} destinationLng={destinationLng}
+                      destinationLat={destinationLat} />
+          ) : <GoogleMap key="" /> }
+        
       </div>
     );
   }
@@ -145,12 +122,4 @@ EmployeeRoute.propTypes = {
 
 EmployeeRoute.displayName = 'EmployeeRoute';
 
-export default Resolver.createContainer(EmployeeRoute, {
-  resolve: {
-    /*
-    promise() {
-      return PromiseStore.find(this.getParams().id);
-    }
-    */
-  },
-});
+export default EmployeeRoute;

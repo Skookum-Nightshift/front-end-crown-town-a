@@ -21,14 +21,14 @@
   text-align: center;
 }
 
-.current_link,
+.link_item.active,
 .link_item:hover {
   border-color: red;
   border-style: groove;
 }
 
-.current_link .caption,
-.current_link .fa,
+.link_item.active .caption,
+.link_item.active .fa,
 .link_item:hover .caption,
 .link_item:hover .fa {
   color: red;
@@ -43,6 +43,7 @@
   border-width: 0;
   border-bottom-width: 2px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .title {

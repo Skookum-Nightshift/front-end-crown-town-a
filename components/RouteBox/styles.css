@@ -1,16 +1,18 @@
 /** @define RouteBox; use strict */
 
 .RouteBox {
-  color: white;
   background-color: #485158;
   display: inline-block;
   position: absolute;
   right: 0;
   width: calc(31.6% - 30px);
   min-width: 10%;
-  padding: 70px 15px 15px 15px;
+  padding: 15px;
   margin-top: 70px;
   margin-bottom: 10px;
   border-bottom-left-radius: 25px;
   z-index: 1;
+  max-height: calc(100vh - 300px);
+  overflow-x: hidden;
+  overflow-y: auto;
 }

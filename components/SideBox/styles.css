@@ -12,4 +12,5 @@
   line-height: 1.6;
   border-bottom-left-radius: 25px;
   z-index: 1;
+  overflow: hidden;
 }

@@ -1,118 +1,80 @@
 require('./styles.css');
 
-import UserActions from '../../actions/UserActions';
-import UserStore from '../../stores/UserStore';
+import NeighborhoodStore from '../../stores/NeighborhoodStore';
+import NeighborhoodActions from '../../actions/NeighborhoodActions';
+import {apiGet} from 'requestLib';
 import React from 'react';
-import {apiGet} from 'requestLib' ;
-import {Resolver} from 'react-resolver';
 import Button from 'Button';
 import SideBox from 'SideBox';
 import TopBar from 'TopBar';
 import RouteBox from 'RouteBox';
 import {Link} from 'react-router';
+import LoggedInHandler from 'LoggedInHandler';
+import RouteListItem from 'RouteListItem';
 
-class Home extends React.Component {
+class Home extends LoggedInHandler {
 
- constructor(){
-   super();
-   this.state = {
-     user: UserStore.getState().user,
-     users: []
-   };
+  constructor() {
+    super();
 
-   this.handleLogout = this.handleLogout.bind(this);
-   this.handleLogin = this.handleLogin.bind(this);
-   this.userRoutes = this.userRoutes.bind(this);
+    this.state.routes = [];
+    this.state.neighborhood = NeighborhoodStore.getState().neighborhood;
 
- }
+    this.selectNeigborhood = this.selectNeigborhood.bind(this);
+  }
 
- componentDidMount(){
-   if (!this.state.user) {
-     this.context.router.transitionTo('login');
-   }
+  componentDidMount() {
+    this.watchUser();
+    this.handleNoUser();
 
-   UserStore.listen((state) => {
-     this.setState({ user: state.user });
-   });
- }
+    var {user} = this.state;
+    apiGet('v1/neighborhoods/needs_pick_up', {}, 
+      (result) => {
+        this.setState({ routes: result });
+      },
+      (error) => {
+        console.log(error);
+      },
+      {
+        'Authorization': `Bearer ${user.auth_token}`
+      }
+    );
 
- handleLogout(){
-   UserActions.deleteUser();
- }
+  }
 
- userRoutes() {
-   var {routes} = this.state.user;
-   var routesListItems = routes.map((route) => {
-     return (
-       <li>
-         <Link to={`/employeeroute/${route.route_id}`}>
-           {route.address}
-         </Link>
-       </li>
-     );
-   });
-
-   return (
-     <ol>
-       {routesListItems}
-     </ol>
-   );
- }
-
- handleLogin() {
-   this.context.router.transitionTo('login');
- }
+  selectNeigborhood(neighborhood) {
+    NeighborhoodActions.updateNeighborhood(neighborhood);
+    this.context.router.transitionTo('routes');
+  }
 
  render(): ?ReactElement {
-   let routeBox = '';
-   if (this.state.user) {
-     let {user} = this.state;
-     routeBox = (
-       <div className="RouteBox">
-         <div className="current_user">
-           Hello {user.full_name}
-         </div>
-         <div className="current_routes">
-           You have {user.routes.length} route{user.routes.length>1 ? 's' : ''} today
-         </div>
-         {this.userRoutes()}
-         <div className="bottom_logo" />
-       </div>
-     );
-   }
+    let routeBox = '';
+    let {routes, user} = this.state;
 
-   return (
-     <div>
-       <div className="TopBar"></div>
-       <div className="SideBox">
+    if (user) {
+      routeBox = (
+        <div className="RouteBox">
+          <div className="current_user">
+            Hello {user.full_name}
+          </div>
+          <div className="route_list">
+            {routes.map((route, index)=> <RouteListItem id={index} item={route} handleClick={this.selectNeigborhood} />)}
+          </div>
+          <div className="bottom_logo" />
+        </div>
+      );
+    }
 
-         <div className="link_item">
-           <i className="fa fa-cog"></i>
-           <div className="caption">Admin</div>
-         </div>
+    return (
+      <div>
+         <div className="TopBar"></div>
+         <SideBox />
 
-         <div className="current_link link_item">
-           <i className="fa fa-user"></i>
-           <div className="caption">User</div>
-         </div>
-
-         <div className="link_item">
-           <i className="fa fa-map"></i>
-           <div className="caption">Routes</div>
-         </div>
-
-         <div className="link_item" onClick={this.handleLogin}>
-           <i className="fa fa-power-off"></i>
-           <div className="caption">Log Out </div>
-         </div>
-
-       </div>
-
-       { this.state.user ? routeBox : '' }
-        
-     </div>
-   );
- }
+        { routeBox }
+          
+      </div>
+    );
+  }
 }
 
 Home.propTypes = {
@@ -120,8 +82,8 @@ Home.propTypes = {
 };
 
 Home.contextTypes = {
- router: React.PropTypes.func.isRequired
-};
+  router: React.PropTypes.any.isRequired
+}
 
 Home.displayName = 'Home';
 

@@ -16,10 +16,10 @@ import EmployeeRoute from './handlers/EmployeeRoute';
 
 var routes = (
   <Route path="/" handler={App} >
-    <DefaultRoute name="login" handler={Login} />
+    <DefaultRoute name="home" handler={Home} />
+    <Route name="login" handler={Login} />
+    <Route name="routes" handler={EmployeeRoute} />
     <NotFoundRoute handler={NotFound} />
-    <Route name="home" path="/home" handler={Home} />
-    <Route name="employeeroute" path="/employeeroute/:id" handler={EmployeeRoute} />
   </Route>
 );
 
