@@ -45,7 +45,7 @@ class EmployeeRoute extends LoggedInHandler {
 
   getNextRoute() {
     var {user, neighborhood, latitude, longitude} = this.state;
-    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.id}&lat=${latitude}&long=${longitude}`, {}, 
+    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.neighborhood_id}&lat=${latitude}&long=${longitude}`, {}, 
       (result) => {
         console.log(result);
         // RouteActions.updateRoute(result);

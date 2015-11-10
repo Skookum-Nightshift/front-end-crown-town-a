@@ -27,7 +27,7 @@ class RouteListItem extends React.Component {
 	        <div className="number">{id+1}</div>
 	      </div>
 	      <div className="text">
-	        <b>{item.address_line_1}</b>
+	        <b>{item.name}</b>
 	      </div>
 	    </div>
     );
