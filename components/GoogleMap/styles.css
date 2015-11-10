@@ -1,0 +1,10 @@
+/** @define GoogleMap; use strict */
+
+.GoogleMap {}
+
+#map { 
+  height: 100%;
+  width: 100vw;
+  height: calc(100vh - 77px);
+}
+

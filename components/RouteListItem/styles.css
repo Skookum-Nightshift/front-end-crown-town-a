@@ -1,0 +1,35 @@
+/** @define RouteListItem; use strict */
+
+.RouteListItem {
+	background-color: #D1D3D5;
+	height: 70px;
+	margin-bottom: 2px;
+	cursor: pointer;
+}
+
+.RouteListItem .circle {
+	margin-top: 20px;
+	width: 30px; 
+	height: 30px; 
+	background: #343C4A; 
+	border-radius: 30px;
+	margin-left: 20px;
+	margin-left: 30px;
+	float: left;
+}
+
+.RouteListItem .number {
+	color: white;
+	line-height: 30px;
+}
+
+.RouteListItem .text {
+	margin-top: 20px;
+	display: inline-block;
+	color: #343C4A;
+	line-height: 30px;
+}
+
+.RouteListItem:hover {
+	background-color: #DDD;
+}
