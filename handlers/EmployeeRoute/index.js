@@ -10,6 +10,7 @@ import {Link} from 'react-router';
 import GoogleMap from 'GoogleMap';
 import LoggedInHandler from 'LoggedInHandler';
 import NeighborhoodStore from '../../stores/NeighborhoodStore';
+import WeightButton from 'WeightButton';
 
 class EmployeeRoute extends LoggedInHandler {
 
@@ -64,12 +65,11 @@ class EmployeeRoute extends LoggedInHandler {
 
   updateLocation(){
      if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function(position) {
+      navigator.geolocation.watchPosition(function(position) {
         var{latitude, longitude} = this.state;
         if (latitude !== position.coords.latitude || longitude !== position.coords.longitude){
           this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude});
         }
-        setTimeout( this.updateLocation, 10000);
       }.bind(this));
     } else {
       alert("NO GEO!!!");
@@ -77,13 +77,12 @@ class EmployeeRoute extends LoggedInHandler {
   }
 
   render(): ?ReactElement {
-    var {neighborhood, route, latitude, longitude} = this.state;
+    var {neighborhood, route, latitude, longitude, user} = this.state;
     
     if (route) {
       var destinationLat = route.latitude;
       var destinationLng = route.longitude;
     }
-
     return (
       <div>
         <div className="TopBar"></div>
@@ -99,6 +98,7 @@ class EmployeeRoute extends LoggedInHandler {
                 <div>last name: {route.last_name}</div>
                 <div>phone: {route.phone_number}</div>
                 <div>bucket location: {route.bucket_location}</div>
+                <WeightButton userId={route.location_id} />
               </div>
               ) : '' }
 
