@@ -42,7 +42,7 @@ class GoogleMap extends React.Component {
         directionsService.route(request, (response, status) => {
           if (status == google.maps.DirectionsStatus.OK) {
             // Display the route on the map.
-            console.log(response);
+            // console.log(response);
             directionsDisplay.setDirections(response);
           }
         });
