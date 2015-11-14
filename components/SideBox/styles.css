@@ -1,16 +1,37 @@
 /** @define SideBox; use strict */
-
 .SideBox {
   background-color: #C5C5C5;
-  display: inline-block;
-  width: 400px;
-  min-width: 320px;
+  display: block;
+  width: 320px;
+  height: 60px;
   white-space: nowrap;
-  position: absolute;
-  right: 0;
-  padding: 9px 0px;
-  line-height: 1.6;
-  border-bottom-left-radius: 25px;
+  padding: 10px 0px 10px 0px;
+
+  /* Styles Added from Sketch */
+  opacity: 0.75;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+
+  font-family: Raleway-Medium;
+  color: #283641;
+  letter-spacing: 1.16px;
+  font-size: 25px;
   z-index: 1;
   overflow: hidden;
+
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+/*@media only screen and (max-width: 400px) {
+  .SideBox {
+    left: 0;
+  }
+}*/

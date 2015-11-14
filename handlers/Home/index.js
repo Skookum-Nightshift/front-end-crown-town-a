@@ -28,7 +28,7 @@ class Home extends LoggedInHandler {
     this.handleNoUser();
 
     var {user} = this.state;
-    apiGet('v1/neighborhoods/needs_pick_up', {}, 
+    apiGet('v1/neighborhoods/needs_pick_up', {},
       (result) => {
         this.setState({ routes: result });
       },
@@ -55,7 +55,7 @@ class Home extends LoggedInHandler {
       routeBox = (
         <div className="RouteBox">
           <div className="current_user">
-            Hello {user.full_name}
+            Hello, {user.full_name}!
           </div>
           <div className="route_list">
             {routes.map((route, index)=> <RouteListItem id={index} item={route} handleClick={this.selectNeigborhood} />)}
@@ -67,11 +67,14 @@ class Home extends LoggedInHandler {
 
     return (
       <div>
-         <div className="TopBar"></div>
-         <SideBox />
+         <TopBar />
 
-        { routeBox }
-          
+         <div className="Menu">
+
+           <SideBox />
+
+          { routeBox }
+        </div>
       </div>
     );
   }

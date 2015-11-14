@@ -6,19 +6,3 @@ body {
   text-align: center;
   font-family: 'Raleway', sans-serif;
 }
-
-.nav_bar {
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-/*=======
-  background-image: url("/public/images/bg.png");
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-}
-*/
