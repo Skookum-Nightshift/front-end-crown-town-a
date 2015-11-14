@@ -16,24 +16,19 @@ class SideBox extends React.Component {
   render(): ?ReactElement {
     return (
       <div className="SideBox">
-      	<div className="link_item">
-        	<i className="fa fa-cog"></i>
-        	<div className="caption">Admin</div>
-      	</div>
-
         <Link to="/" className="link_item">
           <i className="fa fa-user"></i>
-          <div className="caption">User</div>
+          <div className="caption">USER</div>
         </Link>
 
         <Link to="/routes" className="link_item">
           <i className="fa fa-map"></i>
-          <div className="caption">Routes</div>
+          <div className="caption">ROUTES</div>
         </Link>
 
         <div className="link_item" onClick={this.logoutUser}>
           <i className="fa fa-power-off"></i>
-          <div className="caption">Log Out </div>
+          <div className="caption">LOG OUT </div>
         </div>
       </div>
     );

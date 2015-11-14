@@ -1,19 +1,13 @@
-.Button {
-  /* Rectangle 224 Copy 2: */
+.button {
   background: #D6483D;
   border: none;
   border-radius: 9px;
-
   white-space: normal;
-
-  /* LOG IN: */
-  font-family: .AppleSystemUIFont;
-  font-weight: 400;
-  font-size: 16px;
-  color: #FFFFFF;
-  letter-spacing: 3px;
-  line-height: 35px;
-  width:25%;
+  display: inline-block;
+  left: 0;
+  width: 60px;
+  border-radius: 10px;
+  width: 500px;
 }
 .current_user, .current_routes {
   text-align: center;
@@ -22,15 +16,14 @@
   margin-right: 45px;
 }
 .current_user {
-  border-bottom: none;
-  padding-top: 18px;
+  padding: 18px;
   font-family: 'Raleway', sans-serif;
   font-size: 22px;
   letter-spacing: 1px;
   font-weight: 600;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-radius: 5px;
 }
+/* This is no longer implemented in index.js
 .current_routes {
   border-top: none;
   padding-bottom: 20px;
@@ -38,7 +31,7 @@
   font-weight: lighter;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-}
+}*/
 
 .link_item.active,
 .link_item:hover {
@@ -72,18 +65,33 @@
 
 div.bottom_logo {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 120px;
-  width: 102px;
-  height: 101px;
-
+  margin: 155px auto;
   content: url("/public/images/ct_white_logo.png");
 }
+
 .caption {
   font-size: 13px;
   padding: 2px;
 }
+
+/* Hamburger Menu */
+.Menu {
+  background-color: #28aadc;
+}
+
+.Menu span {
+  transition: transform 0.3s;
+}
+
+/* active state, i.e. menu open */
+.Menu.is-active {
+  background-color: #166888;
+}
+
+.Menu.is-active span {
+  right: -200px;
+}
+
 
 /* Grid for routes list */
 ol {

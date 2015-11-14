@@ -45,7 +45,7 @@ class EmployeeRoute extends LoggedInHandler {
 
   getNextRoute() {
     var {user, neighborhood, latitude, longitude} = this.state;
-    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.neighborhood_id}&lat=${latitude}&long=${longitude}`, {}, 
+    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.neighborhood_id}&lat=${latitude}&long=${longitude}`, {},
       (result) => {
         console.log(result);
         // RouteActions.updateRoute(result);
@@ -78,7 +78,7 @@ class EmployeeRoute extends LoggedInHandler {
 
   render(): ?ReactElement {
     var {neighborhood, route, latitude, longitude} = this.state;
-    
+
     if (route) {
       var destinationLat = route.latitude;
       var destinationLng = route.longitude;
@@ -86,12 +86,10 @@ class EmployeeRoute extends LoggedInHandler {
 
     return (
       <div>
-        <div className="TopBar"></div>
+        <TopBar />
         <SideBox />
-        
-        <div className="RouteBox">
 
-          <div className="route_list">
+        <RouteBox>
 
             { route ? (
               <div>
@@ -102,15 +100,14 @@ class EmployeeRoute extends LoggedInHandler {
               </div>
               ) : '' }
 
-          </div>
           <Button onClick={this.getNextRoute}>Next Customer</Button>
-        </div>
+        </RouteBox>
         { route ? (
           <GoogleMap key={latitude+":"+longitude} lat={latitude} lng={longitude}
                       directions={true} destinationLng={destinationLng}
                       destinationLat={destinationLat} />
           ) : <GoogleMap key="" /> }
-        
+
       </div>
     );
   }
