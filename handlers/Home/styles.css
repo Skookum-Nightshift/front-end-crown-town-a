@@ -1,20 +1,37 @@
-.Button {
-  /* Rectangle 224 Copy 2: */
-  background: #D6483D;
-  border: none;
-  border-radius: 9px;
-
-  white-space: normal;
-
-  /* LOG IN: */
-  font-family: .AppleSystemUIFont;
-  font-weight: 400;
-  font-size: 16px;
-  color: #FFFFFF;
-  letter-spacing: 3px;
-  line-height: 35px;
-  width:25%;
+.butt {
+  display: block;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 30px;
+  height: 20px;
+  border-radius: 5px;
+  opacity: 0.75;
+  cursor: pointer;
+  z-index: 2;
+  background-color: grey;
 }
+
+/* Hamburger Menu */
+div.Menu {
+  background-color: white;
+}
+
+/*.Menu span {
+  transition: transform 0.3s;
+}
+
+/* active state, i.e. menu open
+.Menu.is-active {
+  background-color: #166888;
+}
+
+.Menu.is-active span {
+  right: -200px;
+}
+*/
+
 .current_user, .current_routes {
   text-align: center;
   border: 3px solid #FFFFFF;
@@ -22,15 +39,14 @@
   margin-right: 45px;
 }
 .current_user {
-  border-bottom: none;
-  padding-top: 18px;
+  padding: 18px;
   font-family: 'Raleway', sans-serif;
   font-size: 22px;
   letter-spacing: 1px;
   font-weight: 600;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-radius: 5px;
 }
+/* This is no longer implemented in index.js
 .current_routes {
   border-top: none;
   padding-bottom: 20px;
@@ -38,7 +54,7 @@
   font-weight: lighter;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-}
+}*/
 
 .link_item.active,
 .link_item:hover {
@@ -64,6 +80,18 @@
   cursor: pointer;
   text-decoration: none;
 }
+.hamburger {
+  color: #343c4a;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 2;
+  position: absolute;
+  margin: 10px;
+}
 
 .title {
   font-size: 56px;
@@ -72,32 +100,11 @@
 
 div.bottom_logo {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 120px;
-  width: 102px;
-  height: 101px;
-
+  margin: 155px auto;
   content: url("/public/images/ct_white_logo.png");
 }
+
 .caption {
   font-size: 13px;
   padding: 2px;
-}
-
-/* Grid for routes list */
-ol {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-li {
-    text-align: center;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 10px;
-    padding: 20px;
-    background-color: #D3D3D3;
-    border: 1px solid white;
-    border-radius: 5px;
 }

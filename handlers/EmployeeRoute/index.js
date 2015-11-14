@@ -55,7 +55,7 @@ class EmployeeRoute extends LoggedInHandler {
 
   getNextRoute() {
     var {user, neighborhood, latitude, longitude} = this.state;
-    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.neighborhood_id}&lat=${latitude}&long=${longitude}`, {}, 
+    apiGet(`v1/locations/next?neighborhood_id=${neighborhood.neighborhood_id}&lat=${latitude}&long=${longitude}`, {},
       (result) => {
         console.log(result);
         RouteActions.updateRoute(result);
@@ -87,40 +87,35 @@ class EmployeeRoute extends LoggedInHandler {
   }
 
   render(): ?ReactElement {
-    var {neighborhood, route, latitude, longitude, user} = this.state;
-    
+    var {neighborhood, route, latitude, longitude} = this.state;
+
     if (route) {
       var destinationLat = route.latitude;
       var destinationLng = route.longitude;
     }
     return (
       <div>
-        <div className="TopBar"></div>
+        <TopBar />
         <SideBox />
-        
-        <div className="RouteBox">
 
-          <div className="route_list">
-
-            { route ? (
-              <div>
-                <div>First Name: {route.first_name}</div>
-                <div>Last Name: {route.last_name}</div>
-                <div>Phone: {route.phone_number}</div>
-                <div>Bucket Location: {route.bucket_location}</div>
-                <WeightButton userId={route.location_id} />
-                <Button onClick={this.getNextRoute}>Next Customer</Button>
-              </div>
-              ) : 'No more active homes in this neighborhood' }
-
-          </div>
-        </div>
+        <RouteBox>
+          { route ? (
+            <div>
+              <div>First Name: {route.first_name}</div>
+              <div>Last Name: {route.last_name}</div>
+              <div>Phone: {route.phone_number}</div>
+              <div>Bucket Location: {route.bucket_location}</div>
+              <WeightButton userId={route.location_id} />
+              <Button onClick={this.getNextRoute}>Next Customer</Button>
+            </div>
+            ) : 'No more active homes in this neighborhood' }
+        </RouteBox>
         { latitude ? (
           <GoogleMap key={latitude+":"+longitude} lat={latitude} lng={longitude}
                       directions={true} destinationLng={destinationLng}
                       destinationLat={destinationLat} />
           ) : <GoogleMap key="" /> }
-        
+
       </div>
     );
   }
