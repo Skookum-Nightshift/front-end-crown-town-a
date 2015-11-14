@@ -67,9 +67,10 @@ class Home extends LoggedInHandler {
 
     return (
       <div>
-         <div className="TopBar"></div>
-         <Button>|||</Button>
+         <TopBar />
+
          <div className="Menu">
+
            <SideBox />
 
           { routeBox }
