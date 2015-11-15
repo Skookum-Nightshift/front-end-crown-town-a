@@ -30,10 +30,6 @@ class SideBox extends React.Component {
           <i className="fa fa-power-off"></i>
           <div className="caption">LOG OUT </div>
         </div>
-
-        <div className="hamburger">
-          <i className="fa fa-bars"></i>
-        </div>
       </div>
     );
   }

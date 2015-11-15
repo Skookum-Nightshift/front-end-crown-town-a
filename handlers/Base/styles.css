@@ -5,4 +5,7 @@ body {
   background-image: url('/public/images/bg.png');
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  width: 100vw;
+  max-width: 736px;
+  margin: 0 auto;
 }
