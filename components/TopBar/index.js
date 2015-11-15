@@ -9,14 +9,17 @@ class TopBar extends React.Component {
   render(): ?ReactElement {
     return (
       <div className="TopBar">
-        <div className="top_logo"></div>
+        { this.props.showBurger ? (
+          <div className="hamburger" onClick={this.props.onBurger}>
+            <i className="fa fa-bars"></i>
+          </div>) : '' }
       </div>
     );
   }
 }
 
 TopBar.propTypes = {
-  id: PropTypes.any.isRequired,
+  onBurger: PropTypes.func.isRequired,
 };
 
 export default TopBar;

@@ -3,9 +3,7 @@ require('./styles.css');
 import React from 'react';
 import {apiGet} from 'requestLib';
 import Button from 'Button';
-import SideBox from 'SideBox';
-import TopBar from 'TopBar';
-import RouteBox from 'RouteBox';
+import MainBox from 'MainBox';
 import {Link} from 'react-router';
 import GoogleMap from 'GoogleMap';
 import LoggedInHandler from 'LoggedInHandler';
@@ -95,10 +93,7 @@ class EmployeeRoute extends LoggedInHandler {
     }
     return (
       <div>
-        <TopBar />
-        <SideBox />
-
-        <RouteBox>
+        <MainBox>
           { route ? (
             <div>
               <div>First Name: {route.first_name}</div>
@@ -109,7 +104,8 @@ class EmployeeRoute extends LoggedInHandler {
               <Button onClick={this.getNextRoute}>Next Customer</Button>
             </div>
             ) : 'No more active homes in this neighborhood' }
-        </RouteBox>
+        </MainBox>
+
         { latitude ? (
           <GoogleMap key={latitude+":"+longitude} lat={latitude} lng={longitude}
                       directions={true} destinationLng={destinationLng}

@@ -1,12 +1,19 @@
 /** @define TopBar; use strict */
-
 .TopBar {
-  height: 77px;
+  height: 76px;
   background-color: #343C4A;
   background-image: url("/public/images/top_bar_logo.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 62px;
-  background-position-y: 9px;
+  background-position-y: 7px;
   z-index: 1;
+}
+.hamburger {
+  color: #FFF;
+  cursor: pointer;
+  padding-right: 10px;
+  float: right;
+  font-size: 23px;
+  line-height: 76px;
 }

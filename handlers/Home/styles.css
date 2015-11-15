@@ -1,18 +1,3 @@
-.butt {
-  display: block;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  width: 30px;
-  height: 20px;
-  border-radius: 5px;
-  opacity: 0.75;
-  cursor: pointer;
-  z-index: 2;
-  background-color: grey;
-}
-
 /* Hamburger Menu */
 div.Menu {
   background-color: white;
@@ -79,18 +64,6 @@ div.Menu {
   border-bottom-width: 2px;
   cursor: pointer;
   text-decoration: none;
-}
-.hamburger {
-  color: #343c4a;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-  width: 60px;
-  cursor: pointer;
-  text-decoration: none;
-  z-index: 2;
-  position: absolute;
-  margin: 10px;
 }
 
 .title {
