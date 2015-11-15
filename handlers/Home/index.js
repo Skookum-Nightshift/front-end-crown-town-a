@@ -4,11 +4,7 @@ import NeighborhoodStore from '../../stores/NeighborhoodStore';
 import NeighborhoodActions from '../../actions/NeighborhoodActions';
 import {apiGet} from 'requestLib';
 import React from 'react';
-import Button from 'Button';
-import SideBox from 'SideBox';
-import TopBar from 'TopBar';
-import RouteBox from 'RouteBox';
-import {Link} from 'react-router';
+import MainBox from 'MainBox';
 import LoggedInHandler from 'LoggedInHandler';
 import RouteListItem from 'RouteListItem';
 
@@ -53,7 +49,7 @@ class Home extends LoggedInHandler {
 
     if (user) {
       routeBox = (
-        <div className="RouteBox">
+        <div>
           <div className="current_user">
             Hello, {user.full_name}!
           </div>
@@ -67,14 +63,9 @@ class Home extends LoggedInHandler {
 
     return (
       <div>
-         <TopBar />
-
-         <div className="Menu">
-
-           <SideBox />
-
+        <MainBox canNotToggle={true}>
           { routeBox }
-        </div>
+        </MainBox>
       </div>
     );
   }
